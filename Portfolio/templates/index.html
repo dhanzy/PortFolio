@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Olayinka</title>
+    <meta name="description" content="Daniel Olayinka is a mechanical Engineer who specializes in building (and occasionally designing) exceptional digital website experiences.">
+    <meta name="image" content="">
+    <meta name="theme-color" content="">
+    <link rel="icon" href="">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <style type="text/css">
+        :root {
+            --pink: #E41376;
+            --light-blue: #01C8EE;
+            --navy: #0a192f;
+            --dark-navy: #020c1b;
+            --lightest-navy: #233554;
+            --nav-height: 100px;
+            --green: #64ffda;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --navy-shadow: rgba(2,12,27,0.7);
+            --font-sans: "calibre","San Francisco","SF Pro Text", sans-serif;
+            --font-mono: "SF Mono", "Fira Code", "Roboto Mono", monospace;
+            --fz-xxs: 12px;
+            --fz-xs: 13px;
+            --fz-sm: 14px;
+            --fz-md: 16px;
+            --fz-lg: 18px;
+            --fz-xl: 20px;
+            --fz-heading: 32px;
+            --hamburger-width: 30px;
+            --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+            --ham-before: top 0.1s ease-in 0.25s,opacity 0.1s ease-in;
+            --ham-before-active: top 0.1s ease-out,opacity 0.1s ease-out 0.12s;
+            --ham-after: bottom 0.1s ease-in 0.25s,transform 0.22s cubic-bezier(0.55,0.055,0.675,0.19);
+            --ham-after-active: bottom 0.1s ease-out,transform 0.22s cubic-bezier(0.215,0.61,0.355,1) 0.12s;
+            --easing: cubic-bezier(0.645,0.045,0.355,1);
+        }
+        *, *::after, *::before{
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            min-height: 100%;
+            overflow-x: scroll;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.3;
+            color: var(--slate);
+            background-color: var(--navy);
+            line-height: 1.3;
+            font-size: var(--fz-xl);
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+        
+        div, header {
+            display: block;
+        }
+        section {
+            margin: 0px auto;
+            max-width: 1000px;
+            padding: 100px 0px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.1;
+            font-weight: 600;
+            margin: 0px 0px 10px;
+            color: var(--lightest-slate);
+        }
+        p > a {
+            display: inline-block;
+            color: var(--green);
+            transition: var(--transition);
+        }
+        button {
+            cursor: pointer;
+            border: 0px;
+            border-radius: 0px;
+        }
+        #root {
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            grid-template-columns: 100%;
+        }
+        .styled_content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .nav__styledHeader {
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            align-items: center;
+            -webkit-box-align: center;
+            padding: 0px 50px;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: rgba(10,25,47,0.85);
+            backdrop-filter: blur(10px);
+            z-index: 11;
+        }
+        .nav_styledNav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%;
+        }
+        .nav_styledNav .logo {
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav_styledNav .logo a {
+            color: var(--green);
+            width: 42px;
+            height: 42px;
+        }
+        .nav_styled_links {
+            display: flex;
+            align-items: center;
+            -webkit-box-align: center;
+        }
+        .nav_styled_links ol {
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            color: var(--lightest-slate);
+        }
+        .nav_styled_links ol  li {
+            margin: 0px 5px;
+            position: relative;
+            font-size: var(--fz-xs);
+            display: list-item;
+            counter-increment: item 1;
+        }
+        .nav_styled_links ol  li a {
+            padding: 10px;
+        }
+        .nav_styled_links ol  li a::before {
+            content: "0" counter(item) ".";
+            margin-right: 5px;
+            color: var(--green);
+        }
+        .menu_styledLinks {
+            display: none;
+        }
+        aside.menu_styledBar {
+            display: none;
+        }
+        
+        
+        .side_styledElement {
+            width: 40px;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+            color: var(--light-slate)
+        }
+        .side_styledElement.left {
+            left: 40px;
+            right: auto;
+        }
+        .side_styledElement.right {
+            left: auto;
+            right: 40px;
+        }
+        .side_styledElement ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            -webkit-box-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        .side_styledElement ul::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 90px;
+            margin: 0px auto;
+            background-color: var(--light-slate);
+        }
+        .side_styledElement ul li a {
+            padding: 10px;
+        }
+        .side_styledElement ul li a svg {
+            width: 20px;
+            height: 20px
+        }
+        .email_styledLink {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            -webkit-box-align: center;
+        }
+        .email_styledLink::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 90px;
+            margin: 0px auto;
+            background-color: var(--light-slate);
+        }
+        .email_styledLink a {
+            margin: 20px auto;
+            padding: 10px;
+            writing-mode: vertical-rl;
+            -webkit-writing-mode: vertical-rl;
+            letter-spacing: 0.2em;
+            font-size: var(--fz-xxs);
+        }
+        main.fill-height {
+            padding: 0px 150px;
+        }
+        .intro_styledSection {
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-pack: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 0px;
+        }
+        .intro_styledSection h1 {
+            position: relative;
+            margin: 0px 0px 30px 4px;
+            color: var(--green);
+            font-weight: 400;
+            padding-left: 100px;
+        }
+        .intro_styledSection h1::before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 0px;
+            transform: translateY(-50%);
+            line-height: 1;
+            width: 90px;
+            height: 2px;
+            background-color: var(--light-slate);
+        }
+        .intro_styledSection p {
+            margin: 20px 0px 0px;
+            max-width: 500px;
+        } 
+        .intro_styledSection p span {
+            color: var(--green);
+        }
+        .email-link {
+            color: var(--green);
+            background-color: transparent;
+            border: 1px solid var(--green);
+            border-radius: 2px;
+            padding: 1.25rem 1.75rem;
+            margin-top: 50px;
+            line-height: 1;
+            font-size: var(--fz-sm);
+            font-family: var(--font-mono);
+        }
+        .cool-img img {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            max-width: none;
+            width: 100%;
+        }
+        .big-heading {
+            margin: 0px;
+            font-size: clamp(40px, 8vw, 80px);
+        }
+        .about_styledSection {
+            max-width: 900px;
+        }
+        .about_styledSection .inner {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+        }
+        .about_styledSection .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(140px, 200px));
+            list-style: none;
+            overflow: hidden;
+            margin: 20px 0px 0px;
+        }
+        .about_styledSection .skills-list li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            font-family: var(--font-mono);
+            font-size: var(--fz-xs);
+        }
+        .about_styledSection .skills-list li::before {
+            position: absolute;
+            content: "▹";
+            left: 0px;
+            color: var(--green);
+            font-size: var(--fz-sm);
+            line-height: 14px;
+        }
+        .about_styledPic {
+            position: relative;
+            max-width: 300px;
+        }
+        .about_styledPic .wrapper {
+            box-shadow: 0px 10px 30px -15px var(--navy-shadow);
+            display: block;
+            position: relative;
+            width: 100%;
+            border-radius: 5px;
+            background-color: var(--green);
+        }
+        .about_styledPic .wrapper::after {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            border: 2px solid var(--green);
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+        }
+        .numbered-heading {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 10px 0px 40px;
+            width: 100%;
+            font-size: clamp(26px,5vw,var(--fz-heading));
+            white-space: nowrap;
+        }
+        .numbered-heading::before {
+            position: relative;
+            bottom: 4px;
+            counter-increment: section 1;
+            content: "0" counter(section) ".";
+            margin-right: 10px;
+            font-family: var(--font-mono);
+            font-weight: 400;
+            font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
+            color: var(--green);
+        }
+        .numbered-heading::after {
+            position: relative;
+            content: "";
+            display: block;
+            top: -5px;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--lightest-navy);
+        }
+
+        .jobs_styledSection .inner {
+            display: flex;
+        }
+        .jobs_styledTabList {
+            position: relative;
+            padding: 0px;
+            width: max-content;
+            z-index: 3;
+        }
+        .jobs_styledTabButton {
+            text-decoration: none;
+            text-decoration-skip-ink: auto;
+            position: relative;
+            -webkit-box-align: center;
+            align-items: center;
+            background-color: transparent;
+            padding: 0px 20px 2px;
+            width: 100%;
+            height: 42px; 
+            border-left: 2px solid var(--lightest-navy);
+            color: var(--green);
+            font-size: var(--fz-xs);
+            text-align: left;
+            white-space: nowrap;
+            display: flex;
+        } 
+        .featured_styledProjectsGrid {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        .featured_styledProject {
+            position: relative;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+            -webkit-box-align: center;
+        }
+        .featured_styledProject:not(:last-of-type) {
+            margin-bottom: 100px;
+        }
+        .featured_styledProject:nth-of-type(2n+1) .project-content {
+            grid-column: 7 / -1;
+            text-align: right;
+        }
+        .featured_styledProject .project-content {
+            position: relative;
+            grid-area: 1 / 1 / -1 / 7;
+        }
+        .featured_styledProject .project-overline {
+            margin: 10px 0px;
+            color: var(--green);
+            font-family: var(--font-mono);
+            font-size: var(--fz-xs);
+            font-weight: 400;
+        }
+        .featured_styledProject .project-title {
+            margin: 0px 0px 20px;
+            color: var(--light-slate);
+            font-size: clamp(24px, 5vw, 28px);
+        }
+        .featured_styledProject .project-description {
+            box-shadow: 0px 10px 30px -15px var(--navy-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            padding: 25px;
+            border-radius: 4px;
+            background-color: var(--lightest-navy);
+            color: var(--light-slate);
+            font-size: var(--fz-lg);
+        }
+        .featured_styledProject:nth-of-type(2n+1) .project-image {
+            grid-column: 1 / 8;
+        }
+        .featured_styledProject .project-image {
+            box-shadow: 0 10px 30px -15px var(--navy-shadow);
+            transition: var(--transition);
+            grid-area: 1 / 6 / -1 / -1;
+            position: relative;
+            z-index: 1;
+        }
+        .contact_styledSection {
+            max-width: 600px;
+            margin: 0px auto 100px;
+            text-align: center;
+        }
+        
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: auto;
+            min-height: 70px;
+            padding: 15px;
+            text-align: center;
+        }
+        footer .footer_styledCredit {
+            color: var(--light-slate);
+            font-size: var(--fz-xs);
+            line-height: 1;
+        }
+        footer .footer_styledSocialLinks {
+            display: none;
+        }
+        footer .footer_styledSocialLinks ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        footer .footer_styledSocialLinks ul a svg {
+            width: 20px;
+            height: 20px;
+        }
+        footer .footer_styledCredit {
+            padding: 10px;
+        }
+        @media (max-width: 1080px) {
+            
+            .side_styledElement.left {
+                left: 20px;
+                right: auto;
+            }  
+            .side_styledElement.right {
+                right: 20px;
+                left: auto;
+            } 
+            main.fill-height {
+                padding: 0px 100px;   
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .nav_styled_links {
+                display: none;
+            }
+            .menu_styledLinks {
+                display: block;
+            }
+            .side_styledElement.left  {
+                display: none;
+            }
+            .side_styledElement.right {
+                display: none;
+            } 
+            main.fill-height {
+                padding: 0px 50px;
+            }
+            .btn_styledBurger {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding: 15px;
+                border: 0px;
+                background-color: transparent;
+                outline: none;
+                z-index: 10;
+                margin-right: -15px;
+                text-transform: none;
+                transition-property: opacity;
+                transition-duration: 0.15s;
+                transition-timing-function: linear;
+            }
+            .btn_styledBurger .ham-box {
+                display: inline-block;
+                position: relative;
+                width: var(--hamburger-width);
+                height: 24px;
+            }
+            .btn_styledBurger .ham-box-inner {
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                width: var(--hamburger-width);
+                height: 2px;
+                background-color: var(--green);
+                border-radius: 4px;
+                transform: rotate(0deg);
+                transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+            }
+            .btn_styledBurger .ham-box-inner::before {
+                width: 120%;
+                top: -10px;
+                opacity: 1;
+                transition: var(--ham-before);
+            }
+            .btn_styledBurger .ham-box-inner::after {
+                width: 80%;
+                bottom: -10px;
+                opacity: 1;
+                transition: var(--ham-after);
+            } 
+            .btn_styledBurger .ham-box-inner::before, .btn_styledBurger .ham-box-inner::after  {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 2px;
+                left: auto;
+                right: 0px;
+                background-color: var(--green);
+                height: 2px;
+                right: 0;
+                border-radius: 4px;
+                -o-transition-timing-function: ease;
+                transition-timing-function: ease;
+                transition-duration: 0.15s;
+                transition-property: transform;
+            } 
+            .btn_styledBurger.active .ham-box-inner {
+                transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+                transform: rotate(225deg);
+            }
+            .btn_styledBurger.active .ham-box-inner::before {
+                width: 100%;
+                top: 0px;
+                opacity: 0;
+                transition: var(--ham-before-active);
+            }
+            .btn_styledBurger.active .ham-box-inner::after {
+                width: 100%;
+                top: 0px;
+                transform: rotate(-90deg);
+                transition: var(--ham-after-active);
+            } 
+            aside.menu_styledBar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0px;
+                bottom: 0px;
+                right: 0px;
+                width: min(75vw, 400px);
+                height: 100vh;
+                outline: 0px;
+                background-color: var(--lightest-navy);
+                box-shadow: -10px 0px 30px -15px var(--navy-shadow);
+                z-index: 9;
+                transform: translateX(0vw);
+                visibility: visible;
+            }
+            aside.menu_styledBar {
+                transform: translateX(100vw);
+                /* visibility: hidden; */
+                transition: var(--transition);
+            }
+            aside.menu_styledBar nav {
+                display: flex;
+                justify-content: space-between;
+                -webkit-box-align: center;
+                align-items: center;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                font-family: var(--font-mono);
+            }
+            aside.menu_styledBar nav ol {
+                list-style: none;
+                width: 100%;
+                padding: 0px;
+            }
+            aside.menu_styledBar nav ol li {
+                position: relative;
+                margin: 0px auto 20px;
+                counter-increment: item 1;
+                font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
+            }
+            aside.menu_styledBar nav .resume-link {
+                color: var(--green);
+                border-radius: 5px;
+                border: 1px solid var(--green);
+                font-family: var(--font-mono);
+                line-height: 1;
+                padding: 18px 50px;
+                margin: 10% auto 0px;
+                width: max-content;
+            }
+            .about_styledSection .inner {
+                display: block;
+            }
+            .about_styledSection .about_styledPic {
+                margin: 50px auto 0px;
+                width: 70%;
+            }
+            footer .footer_styledSocialLinks {
+                display: block;
+                width: 100%;
+                max-width: 270px;
+                margin: 0px auto 10px;
+                color: var(--light-slate);
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div style="outline: none;" id="focus-wrapper">
+            <div id="root">
+                <div class="styled_content">
+                    <header class="nav__styledHeader">
+                        <nav class='nav_styledNav'>
+                            <div class="logo fade-enter-done">
+                                <a href="/" aria-label="home">
+                                    <svg id="logo" xmlns="" role="img" viewBox="0 0 84 96">
+                                        <title>Logo</title>
+                                        <g transform="translate(-8.000000, -2.000000)">
+                                            <g transform="translate(11.000000, 5.000000)">
+                                                <path d="M45.691667,45.15 C48.591667,46.1 50.691667,48.95 50.691667,52.2 C50.691667,57.95 46.691667,61 40.291667,61 L28.541667,61 L28.541667,30.3 L39.291667,30.3 C45.691667,30.3 49.691667,33.15 49.691667,38.65 C49.691667,41.95 47.941667,44.35 45.691667,45.15 Z M33.591667,43.2 L39.241667,43.2 C42.791667,43.2 44.691667,41.85 44.691667,38.95 C44.691667,36.05 42.791667,34.8 39.241667,34.8 L33.591667,34.8 L33.591667,43.2 Z M33.591667,47.5 L33.591667,56.5 L40.191667,56.5 C43.691667,56.5 45.591667,54.75 45.591667,52 C45.591667,49.2 43.691667,47.5 40.191667,47.5 L33.591667,47.5 Z" fill="currentColor"></path><polygon id="Shape" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="39 0 0 22 0 67 39 90 78 68 78 23"></polygon>
+                                            </g>
+                                        </g>
+
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="nav_styled_links">
+                                <ol>
+                                    <li class="fadedown-enter-done">
+                                        <a href="/#about">About</a>
+                                    </li>
+                                    <li class="fadedown-enter-done">
+                                        <a href="/#jobs">Experience</a>
+                                    </li>
+                                    <li class="fadedown-enter-done">
+                                        <a href="/#projects">Work</a>
+                                    </li>
+                                    <li class="fadedown-enter-done">
+                                        <a href="/#contact">Contact</a>
+                                    </li>
+                                </ol>
+                                <div class="fadedown-enter-done">
+                                    <a href="" class="resume-button" target='_blank' rel>Resume</a>
+                                </div>
+                            </div>
+                            <div class="menu_styledLinks">
+                                <div>
+                                    <button class="btn_styledBurger" aria-label='Menu'>
+                                        <div class="ham-box">
+                                            <div class="ham-box-inner"></div>
+                                        </div>
+                                    </button>
+                                    <aside class='menu_styledBar' aria-hidden="true" tabindex="-1">
+                                        <nav>
+                                            <ol>
+                                                <li>
+                                                    <a href="#">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Experience</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Work</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Contact</a>
+                                                </li>
+                                            </ol>
+                                            <a href="/resume.pdf" class="resume-link">Resume</a>
+                                        </nav>
+                                    </aside>
+                                </div>
+                            </div>
+                        </nav>
+                    </header>
+                    <div class="side_styledElement left" aria-orientation="left">
+                        <ul class="social_styledList">
+                            <li>
+                                <a href="https://github.com/dhanzy" aria-label="Github" target='_blank'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/holuwadanzy" aria-label='Instagram' target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/in/daniel-olayinka-aab4a713b" aria-label='Linkedin' target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="side_styledElement right" aria-orientation="right">
+                        <div class="email_styledLink fade-enter-done">
+                            <a href="mailto:holuwadanzy@gmail.com">holuwadanzy@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <main class='fill-height'>
+                            <section class="intro_styledSection">
+                                <div class="fadeup-enter-done">
+                                    <h1>Hello</h1>
+                                </div>
+                                <div class="fadeup-enter-done">
+                                    <h2 class='big-heading'>I'm Daniel Olayinka</h2>
+                                </div>
+                                <!-- <div class="fadeup-enter-done">
+                                    <h2 class='big-heading'>I build things for the web.</h2>
+                                </div>
+                                <div class="fadeup-enter-done">
+                                    <p>I'm a Nigerian based web developer who specializes in building (and occaionally designing) exceptional digital websites. Currently, I'm a mechanical engineer at <a href="https://mikano-int.com">Mikano International Limited</a> focused on buildning accessible, human centered products.<p>
+                                </div> -->
+                                <div class="fadeup-enter-done">
+                                    <p>This is <span>Daniel Olayinka,</span> web developer, mechanical Engineer and data Analyst located in Nigeria, looking for working around the globe.</p>
+                                </div>
+                                <div class="fadeup-enter-done">
+                                    <a href="mailto:houwadanzy@gmail.com" class='email-link'>Let's Talk</a>
+                                </div>
+                            </section>
+
+                            <section id='about' class='about_styledSection'>
+                                <h2 class='numbered-heading'>About Me</h2>
+                                <div class="inner">
+                                    <div class="about_styledText">
+                                        <div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet beatae deserunt dolores totam quisquam error, provident rerum aut, 
+                                                eligendi odit labore ab. Quidem cumque in minus quibusdam pariatur molestias expedita quaerat itaque consequuntur architecto?
+                                            </p>
+                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum asperiores ipsum, eius iure blanditiis possimus. 
+                                                Eum saepe temporibus est molestias, tempore nulla sequi voluptatum fuga ullam. Molestiae id quibusdam labore mollitia ipsam.
+                                            </p>
+                                            <p>Here are the few technologies I have been working with recently:</p>
+                                        </div>
+                                        <ul class="skills-list">
+                                            <li>Javascript (ES6+)</li>
+                                            <li>Python(Flask)</li>
+                                            <li>Node.js</li>
+                                            <li>Wordpress</li>
+                                        </ul>
+                                    </div>
+                                    <div class="about_styledPic">
+                                        <div class="wrapper">
+                                            <div class="cool-img">
+                                                <div style='max-width: 500px; display: block;'>
+                                                    <img src="data:image/svg+xml;charset=utf-8,%3Csvg height='500' width='500' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E" alt="" role="presentation" style="max-width: 100%; display: block; position: static;">
+                                                </div>
+                                                <div></div>
+                                                <picture>
+                                                    <source srcset="/static/ATSA4021.jpg" sizes="(min-width: 500px)500px, 100vw" type="image/jpg">
+                                                    <img src="/static/ATSA4021.jpg" alt="HeadView" width="500" height="500" style="object-fit: cover; opacity: 1;">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="jobs" class="jobs_styledSection">
+                                <h2 class="numbered-heading">Where I've Worked</h2>
+                                <div class="inner">
+                                    <div class="jobs_styledTabList" role="tablist">
+                                        <button id='tab-0' role='tab' aria-selected='true' aria-controls='panel-0' class="jobs_styledTabButton">
+                                            <span>Federal Airport Of Nigeria</span>
+                                        </button>
+                                        <button id='tab-1' role='tab' aria-selected='false' aria-controls='panel-1' class="jobs_styledTabButton">
+                                            <span>Mikano International Limited</span>
+                                        </button>
+                                        <button id='tab-2' role='tab' aria-selected='false' aria-controls='panel-2' class="jobs_styledTabButton">
+                                            <span>Freelancer</span>
+                                        </button>
+                                    </div>
+                                    <div class="jobs_styledTabPanel">
+                                        <div id="panel-0" class='jobs_styledTabPanelText' role="tabpanel">
+                                            <h3><span>Intern</span><span class="company"> @ Federal Airport OF Nigeria (F.A.A.N)</span></h3>
+                                            <p class="range">March 2019 - August 2019</p>
+                                            <div>
+                                                <ul>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus pariatur neque et tempore sit qui!</li>
+                                                    <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae inventore nobis molestiae accusamus quisquam praesentium numquam.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="projects">
+                                <h2 class="numbered-heading">Some Things I've built</h2>
+                                <ul class="featured_styledProjectsGrid">
+                                    <li class="featured_styledProject">
+                                        <div class="project-content">
+                                            <div>
+                                                <p class="project-overline">Featured Project</p>
+                                                <h3 class="project-title">
+                                                    <a href="http://custom.duckdns.org" target="_blank" rel="noopener noreferrer">Ecommerce Website</a>
+                                                </h3>
+                                                <div class="project-description">
+                                                    <p>
+                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque asperiores quod, consequuntur maiores tempore iusto fuga.
+                                                    </p>
+                                                </div>
+                                                <ul class="project-tech-list">
+                                                    <li>Flask</li>
+                                                    <li>Chart.js</li>
+                                                    <li>Bootstrap3</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="project-image">
+                                            <a href="http://" target="_blank" rel="noopener noreferrer">
+                                                <div class="image-wrapper">
+                                                    <picture>
+                                                        <img src="/static/Screenshot (5).png" alt="" width="700" height="437" srcset="">
+                                                    </picture>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section id="contact" class="contact_styledSection">
+                                <h2 class="numbered-heading">What's Next?</h2>
+                                <h2 class="title">Let's Talk</h2>
+                                <p>I'm looking for new opportunities, my inbox is always open. Wheter you want to say hi, or to hire me!</p>
+                                <a href="mailto:holuwadanzy@gmail.com" class="email-link" target="_blank">Hire Me</a>
+                            </section>
+                        </main>
+                        <footer class='footer_styledFooter'>
+                            <div class="footer_styledSocialLinks">
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/dhanzy" target="_blank" aria-label="GitHub" rel="noreferrer noopener">
+                                            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://Instagram.com/holuwadanzy" target="_blank" aria-label="Instagram" rel="noreferrer noopener">
+                                            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://linkedin.com/in/daniel-olayinka-aab4a713b" target="_blank" aria-label="Linkedin" rel="noreferrer noopener">
+                                            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer_styledCredit">
+                                <a href="https://github.com/dhanzy/">
+                                    <div>Designed and built by Daniel Olayinka</div>
+                                </a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/Javascript'>
+        const navLinksSmooth = () => {
+            const navLinks = document.querySelectorAll('.nav_styled_links a');
+            for (let n in navLinks){
+                if (navLinks.hasOwnProperty(n)){
+                    navLinks[n].addEventListener('click', e => {
+                        console.log(`Clicked ${navLinks[n].hash}` )
+                        e.preventDefault();
+                        document.querySelector(navLinks[n].hash).scrollIntoView({behavior: "smooth"})
+                    })
+                }
+            }
+        }
+        
+        let burgerButton = document.querySelector('.btn_styledBurger');
+        burgerButton.addEventListener('click', () =>{
+            burgerButton.classList.toggle('active');
+        })
+
+        navLinksSmooth()
+    </script>
+</body>
+</html>
