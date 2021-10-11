@@ -10,3 +10,5 @@ sys.path.insert(0, '/var/www/PortFolio')
 from run import app as application
 
 application.secret_key = 'jfnsfjsfnsfinifrniei'
+
+application.run()

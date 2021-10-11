@@ -9,7 +9,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/manifest.webmanifest')
 def webmanifest():
-    path = r'static\manifest.webmanifest'
+    path = os.path.join('static','manifest.webmanifest')
     return send_file(path, as_attachment=True)
 
 
@@ -19,7 +19,8 @@ def resume():
     # path = os.path.join('Portfolio','static')
     # if not os.path.exists(os.path.join(path, filename)):
     #     return os.getcwd()
-    return send_file(r'static\resume.pdf', as_attachment=True)
+    os.path.join('static','resume.pdf')
+    return send_file(path, as_attachment=True)
     # return send_from_directory(path, filename=filename, as_attachment=True)
 
 
