@@ -8,8 +8,8 @@
     <meta name="description" content="Daniel Olayinka is a mechanical Engineer who specializes in building (and occasionally designing) exceptional digital website experiences.">
     <meta name="image" content="">
     <meta name="theme-color" content="">
-    <link rel="icon" href="">
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="{{ url_for('static', filename='Union.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
     <script>
         window.addEventListener('load', ()=> {
             let fadedown = document.querySelectorAll('.fadedown-enter');
@@ -17,6 +17,14 @@
                 el.classList.value = 'fadedown-enter-active';
             })
         });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1C2VEFPH3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-E1C2VEFPH3');
     </script>
     <style type="text/css">
         :root {
@@ -1095,7 +1103,7 @@
                                     </li>
                                 </ol>
                                 <div class="fadedown-enter" style='transition-delay: 400ms;'>
-                                    <a href="{{ url_for('main.resume', filename='resume.pdf') }}" class="resume-button" target='_blank'>Resume</a>
+                                    <a href="{{ url_for('main.get_static_files', filename='resume.pdf') }}" class="resume-button" target='_blank'>Resume</a>
                                 </div>
                             </div>
                             <div class="menu_styledLinks">
@@ -1121,7 +1129,7 @@
                                                     <a href="/#contact">Contact</a>
                                                 </li>
                                             </ol>
-                                            <a href="{{ url_for('main.resume', filename='resume.pdf') }}" class="resume-link">Resume</a>
+                                            <a href="{{ url_for('main.get_static_files', filename='resume.pdf') }}" class="resume-link">Resume</a>
                                         </nav>
                                     </aside>
                                 </div>
@@ -1168,12 +1176,6 @@
                                 <div class="fadeup-enter-done">
                                     <h2 class='big-heading'>I'm Daniel Olayinka</h2>
                                 </div>
-                                <!-- <div class="fadeup-enter-done">
-                                    <h2 class='big-heading'>I build things for the web.</h2>
-                                </div>
-                                <div class="fadeup-enter-done">
-                                    <p>I'm a Nigerian based web developer who specializes in building (and occaionally designing) exceptional digital websites. Currently, I'm a mechanical engineer at <a href="https://mikano-int.com">Mikano International Limited</a> focused on buildning accessible, human centered products.<p>
-                                </div> -->
                                 <div class="fadeup-enter-done">
                                     <p>This is <span>Daniel Olayinka,</span> web developer, mechanical Engineer and data Analyst located in Nigeria, looking for working around the globe.</p>
                                 </div>
@@ -1209,12 +1211,7 @@
                                     </div>
                                     <div class="about_styledPic">
                                         <div class="wrapper glitch">    
-                                            <img src="/static/me.png" alt="HeadView" width="500" height="500" style="object-fit: cover; opacity: 1;">
-                                            <div class="glitch_layers">
-                                                <div class="glitch_layer"></div>
-                                                <div class="glitch_layer"></div>
-                                                <div class="glitch_layer"></div>
-                                            </div>
+                                            <img src="/static/Danny.png" alt="HeadView" width="500" height="500" style="object-fit: cover; opacity: 1;">
                                         </div>
                                     </div>
                                 </div>
