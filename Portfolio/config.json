@@ -40,7 +40,7 @@
         {
             "title": "Political Website",
             "image": "Screenshot (4).png",
-            "link": "http://apcparty.herokuapp.com",
+            "link": "https://apcparty.herokuapp.com",
             "description": "An Political web app built with Flask for registration of membership card",
             "techStack":["Flask","Flask-Login","Bootstrap"]
         },
