@@ -1,0 +1,55 @@
+{
+    "worked":[
+        {
+            "name": "Automobile Repair",
+            "title": "Intern @ Jegede Patrick Automobile Repair",
+            "date": "Ferburary 2021 - August 2021",
+            "activities": [
+                "Performed Maintainance on the Air conditioning system.",
+                "Servicing and Repairing of various cars."
+            ]
+        },
+        {
+            "name": "Mikano",
+            "title": "Intern @ Mikano International Limited",
+            "date": "Ferburary 2020 - July 2020",
+            "activities": [
+                "Performed overhauling of diesel generators",
+                "Worked with the servicing and Inspection team in maintaining of high power power supply generators",
+                "Designed generator parts on solid works"
+            ]
+        },
+        {
+            "name": "F.A.A.N",
+            "title": "Intern @ Federal Airport Authority of Nigeria",
+            "date": "Ferburary-2019 - May 2019",
+            "activities": [
+                "Performed Maintainance on the Air conditioning system.",
+                "Servicing and Repairing of various cars."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "Ogbeni Ecommerce Website",
+            "image": "IIZuDKTmZoJVrvVTrfGYYXJMxv.png",
+            "link": "https://ogbeni.netlify.com",
+            "description": "An E-commerce web app built with React for buying and selling Clothes",
+            "techStack": ["React","Material-Ui","Typescript"]
+        },
+        {
+            "title": "Political Website",
+            "image": "Screenshot (4).png",
+            "link": "http://apcparty.herokuapp.com",
+            "description": "An Political web app built with Flask for registration of membership card",
+            "techStack":["Flask","Flask-Login","Bootstrap"]
+        },
+        {
+            "title": "Admin Page",
+            "image": "admin_AIfXgRJpcJ.png",
+            "link": "https://iamadmin.netlify.com",
+            "description": "An ecommerce admin page for addin and monitoring products",
+            "techStack": ["React","Material-Ui","Typescript"]
+        }
+    ]
+}
