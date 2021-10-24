@@ -1,6 +1,15 @@
 {
     "worked":[
         {
+            "name": "Team Vanilla dip",
+            "title": "Junior Developer @ Hatchways.io",
+            "date": "July 2021 - August 2021",
+            "activities": [
+                "Communicated and collaborated with teams of engineers and designers on a daily basis",
+                "Worked with a variety of different languages, frameworks such as react, typescript, node and mongodb"
+            ]
+        },
+        {
             "name": "Automobile Repair",
             "title": "Intern @ Jegede Patrick Automobile Repair",
             "date": "Ferburary 2021 - August 2021",
@@ -48,8 +57,9 @@
             "title": "Admin Page",
             "image": "admin_AIfXgRJpcJ.png",
             "link": "https://iamadmin.netlify.com",
-            "description": "An ecommerce admin page for addin and monitoring products",
-            "techStack": ["React","Material-Ui","Typescript"]
+            "description": "An ecommerce admin page for adding and monitoring products",
+            "techStack": ["React","Material-Ui","Typescript","Formik"],
+            "status": "unfinished project"
         }
     ]
 }
