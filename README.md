@@ -1,5 +1,5 @@
 <div align="center">
-	<img alt="logo" src="https://githubusercontent.com/dhanzy/Portfolio/Portfolio/static/Union.png" width="100" />
+	<img alt="logo" src="https://raw.githubusercontent.com/dhanzy/Portfolio/main/Portfolio/static/Union.png" width="100" />
 </div>
 <h1 align="center">
 	danielolayinka.herokuapp.com
