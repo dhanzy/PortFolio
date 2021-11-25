@@ -5,3 +5,4 @@ staticfiles
 db.sqlite3
 *resume.pdf
 *Danny.png
+*__pycache__
