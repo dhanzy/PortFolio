@@ -4,7 +4,7 @@
 <h1 align="center">
 	danielolayinka.herokuapp.com
 </h1>
-
+<p align="center">My personal Portfolio of <a href="https://danielolayinka.herokuapp.com">danielolayinka.herokuapp.com</a> built with FLask and hosted in <a href="heroku.com">heroku</a></p>
 
 ## Installation Process and Setup
 1. Install the modules in requirements text
