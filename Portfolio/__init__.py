@@ -7,11 +7,12 @@ db = SQLAlchemy()
 
 def register_blueprint(app):
     from Portfolio.main.routes import main
+
     app.register_blueprint(main)
 
 
 def register_extension(app):
-   db.init_app(app)
+    db.init_app(app)
 
 
 def create_app(config):
