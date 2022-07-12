@@ -78,13 +78,9 @@
                                             <p>Here are the few technologies I have been working with recently:</p>
                                         </div>
                                         <ul class="skills-list">
-                                            <li>Javascript (ES6+)</li>
-                                            <li>Python(Flask)</li>
-                                            <li>React</li>
-                                            <li>TypeScript</li>
-                                            <li>Node.js</li>
-                                            <li>Bash</li>
-                                            <li>Wordpress</li>
+                                            {% for skill in data.skills %}
+                                                <li>{{ skill }}</li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                     <div class="about_styledPic">
