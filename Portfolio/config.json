@@ -50,6 +50,13 @@
   ],
   "projects": [
     {
+      "title": "Abuad SRC Library",
+      "image": "ABUAD_SRC.png",
+      "link": "https://src-library.vercel.app",
+      "description": "An E-Library with admin and user roles where the admin is given the privileges to post books and users ability to download.",
+      "techStack": ["React", "Material-Ui"]
+    },
+    {
       "title": "Ogbeni Ecommerce Website",
       "image": "IIZuDKTmZoJVrvVTrfGYYXJMxv.png",
       "link": "https://ogbeni.netlify.com",
