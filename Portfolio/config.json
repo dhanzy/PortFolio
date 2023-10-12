@@ -2,14 +2,24 @@
   "skills": [
     "Javascript",
     "Python(Flask)",
-    "Solidity",
     "React",
+    "Next.js",
     "TypeScript",
     "Node.js",
     "Bash",
-    "Wordpress"
+    "Laravel"
   ],
   "worked": [
+    {
+      "name": "Aggital Works",
+      "title": "Full Stack Developer @ Aggital Works",
+      "date": "Ferburary 2023 - November 2023",
+      "activities": [
+        "Assisting in developing front-end interfaces with frameworks like React or Next.",
+        "Supporting back-end development, often using languages like Node.js or Laravel.",
+        "Troubleshooting bugs and implementing fixes."
+      ]
+    },
     {
       "name": "Team Vanilla dip",
       "title": "Junior Developer @ Hatchways.io",
@@ -17,15 +27,6 @@
       "activities": [
         "Communicated and collaborated with teams of engineers and designers on a daily basis",
         "Worked with a variety of different languages, frameworks such as react, typescript, node and mongodb"
-      ]
-    },
-    {
-      "name": "Automobile Repair",
-      "title": "Intern @ Jegede Patrick Automobile Repair",
-      "date": "Ferburary 2021 - August 2021",
-      "activities": [
-        "Performed Maintainance on the Air conditioning system.",
-        "Servicing and Repairing of various cars."
       ]
     },
     {
@@ -37,18 +38,23 @@
         "Worked with the servicing and Inspection team in maintaining of high power power supply generators",
         "Designed generator parts on solid works"
       ]
-    },
-    {
-      "name": "F.A.A.N",
-      "title": "Intern @ Federal Airport Authority of Nigeria",
-      "date": "Ferburary-2019 - May 2019",
-      "activities": [
-        "Performed Maintainance on the Air conditioning system.",
-        "Servicing and Repairing of various cars."
-      ]
     }
   ],
   "projects": [
+    {
+      "title": "Access Remit",
+      "image": "accessremit.png",
+      "link": "https://accessremit.com.au",
+      "description": "Offers you to send money to your friends and family from Australia to Nigeria",
+      "techStack": ["Laravel"]
+    },
+    {
+      "title": "Primeries",
+      "image": "primeries.png",
+      "link": "https://shop.primeries.com",
+      "description": "An African Streetwear marketplace where vendors meet customers for transparent and efficient e-commerce.",
+      "techStack": ["Next.js", "Material-Ui", "Express", "Node.js"]
+    },
     {
       "title": "Abuad SRC Library",
       "image": "ABUAD_SRC.png",
@@ -69,14 +75,6 @@
       "link": "https://apcparty.herokuapp.com",
       "description": "An Political web app built with Flask for registration of membership card",
       "techStack": ["Flask", "Flask-Login", "Bootstrap"]
-    },
-    {
-      "title": "Admin Page",
-      "image": "admin_AIfXgRJpcJ.png",
-      "link": "https://iamadmin.netlify.com",
-      "description": "An ecommerce admin page for adding and monitoring products",
-      "techStack": ["React", "Material-Ui", "Typescript", "Formik"],
-      "status": "unfinished project"
     }
   ]
 }
