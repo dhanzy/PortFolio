@@ -3,6 +3,6 @@ venv
 staticfiles
 .env
 db.sqlite3
-*resume.pdf
+# *resume.pdf
 *Danny.png
 *__pycache__
